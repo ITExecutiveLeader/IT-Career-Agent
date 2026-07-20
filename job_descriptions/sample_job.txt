@@ -1,0 +1,9 @@
+Seeking an IT Systems Administrator.
+
+Requirements:
+- Windows Server experience
+- Active Directory
+- PowerShell scripting
+- Networking fundamentals
+- Azure knowledge
+- Security awareness

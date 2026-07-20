@@ -1,0 +1,11 @@
+IT professional with experience in Windows Server,
+Active Directory, networking, Python scripting,
+cloud fundamentals, and cybersecurity concepts.
+
+Skills:
+- Windows Server
+- PowerShell
+- Python
+- Networking
+- Azure Fundamentals
+- Troubleshooting

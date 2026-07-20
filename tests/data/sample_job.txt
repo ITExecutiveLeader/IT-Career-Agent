@@ -1,0 +1,63 @@
+Job Description:
+
+About the job
+Compass Surgical Partners is a leading, independent, full-service ambulatory surgery center (ASC) development and management partner. An exclusive partner for premier health systems, Compass has built a nationwide portfolio of ASC joint ventures with health systems and physicians. Compass’ experienced leadership team has developed more than 250 ASCs over the past three decades, making it the partner of choice for high-performance ASCs. Differentiated by a proven track record of success and an agile, aligned operating model, Compass Surgical Partners aims to create strong partnerships that improve the lives of patients and providers. Learn more at www.compass-sp.com.
+
+Role Overview
+
+The Vice President of Information Technology leads the organization's IT operations, ensuring the technology environment supporting clinical and business operations runs reliably, securely, and efficiently. Reporting to the CIO, this role is accountable for infrastructure performance, clinical and business system administration, security operations, service desk performance, and vendor management across the surgery center or ambulatory surgery network.
+
+The VP of IT leads a team of IT professionals and is responsible for reliable, on-time, on-budget delivery of technology services and initiatives while delivering on priorities set by the CIO and executive leadership.
+
+What You'll Do
+
+IT Operations & Team Leadership
+
+•	Lead the day-to-day operations of the IT department, including infrastructure, service desk, and systems administration teams
+•	Manage the IT operating budget and oversee execution of the approved capital plan
+•	Hire, develop, and manage performance of IT directors, managers, system administrators, and support staff
+•	Report on operational metrics (uptime, ticket resolution, project status, budget performance) to the CIO on a regular cadence
+•	Partner with the CIO on technology strategy, roadmap planning, and architecture direction
+•	Develop and execute the organization's IT strategy aligned with business objectives
+•	Establish IT governance, policies, standards, and best practices
+•	Manage IT budgets, capital planning, vendor relationships, and contract negotiations
+•	Lead digital transformation initiatives and identify emerging technologies that create business value
+
+Systems & Infrastructure Operations
+
+
+•	Oversee administration and support of all clinical platforms (e.g., EHR, Practice Management, Inventory Management) and business platforms (e.g., ERP, HRIS, Intranet)
+•	Manage integrations between third-party medical devices (surgical equipment, imaging systems, monitoring devices) and core data sets and infrastructure
+•	Maintain 99.9% uptime of critical infrastructure, including cloud networks, backup servers, and telecommunications systems
+•	Establish workflows and troubleshooting protocols that minimize disruption to live surgical schedules
+•	Lead execution of M&A integrations, clinical system and facility upgrades, moves, rollouts, system migrations, and multi-site data consolidations
+•	Oversee data management, reporting, and analytics platforms supporting clinical and business decision-making
+
+Security & Compliance Operations
+
+
+•	Operate the organization's cybersecurity program, including identity and access management, multi-factor authentication, endpoint encryption, and network segmentation
+•	Maintain operational compliance with HIPAA, HITECH, and CMS standards
+•	Lead execution and monitoring of Disaster Recovery (DR) and Business Continuity (BC) plans, including regular testing and after-action reporting
+•	Oversee ongoing security operations: vulnerability scanning, patch management, incident response, and delivery of cybersecurity awareness training
+
+Vendor Management
+
+
+•	Manage vendor relationships and hold vendors accountable to service level agreements and scope of services
+•	Monitor vendor performance, renewal timelines, and cost trends, and report findings to the CIO
+
+What You'll Bring
+
+
+•	Bachelor's degree in Information Technology, Computer Science, Healthcare Informatics, or a related field; Master's degree preferred
+•	10+ years of progressive IT experience, ideally including exposure to a multi-site healthcare environment (ambulatory surgery centers, hospitals, or multi-site clinical networks)
+•	6+ years of experience leading a team responsible for infrastructure, service desk, and security operations
+•	Familiarity with healthcare interoperability standards (HL7, FHIR) and data compliance requirements
+•	Working knowledge of cloud infrastructure and security operations tooling
+•	Strong people-management and operational execution skills, with comfort partnering with physicians and clinical staff
+•	Certifications such as ITIL, CISM, CISSP, or PMP are a plus, but not required
+
+Why Compass Surgical Partners
+
+Compass Surgical Partners develops and manages ambulatory surgery centers (ASCs) in partnership with physicians and health systems. We’re builders and operators committed to patient value, physician partnership, and scalable excellence. You’ll join a team that works with clear outcomes, moves fast, and supports each other through our STAR values—Service, Teamwork, Accountability, and Respect (respect through directness, kindness, and ownership).

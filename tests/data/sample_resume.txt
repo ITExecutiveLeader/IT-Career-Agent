@@ -1,0 +1,21 @@
+Todd Huntley
+
+IT Professional with experience supporting enterprise systems.
+
+Skills:
+Python
+SQL
+AWS
+Docker
+Linux
+PowerShell
+Active Directory
+Git
+
+Certifications:
+AWS Certified Solutions Architect
+
+Experience:
+Systems administration
+Cloud infrastructure support
+Automation scripting

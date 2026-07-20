@@ -1,0 +1,1 @@
+from .knowledge_search import search_resume_knowledge
