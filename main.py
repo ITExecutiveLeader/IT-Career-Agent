@@ -1,14 +1,16 @@
 from app.agents.crew_builder import build_career_crew
-from tools import load_document
+from app.services.file_loader import FileLoader
 
 
 def main():
 
-    resume_text = load_document(
+    loader = FileLoader()
+
+    resume_text = loader.load(
         "resumes/sample_resume.txt"
     )
 
-    job_text = load_document(
+    job_text = loader.load(
         "job_descriptions/sample_job.txt"
     )
 

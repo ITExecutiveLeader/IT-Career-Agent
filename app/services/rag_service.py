@@ -21,6 +21,9 @@ class RAGService:
             category=category,
         )
 
+        if not results["documents"][0]:
+            return "No knowledge found."
+
         output = []
 
         for document, metadata in zip(
@@ -30,7 +33,7 @@ class RAGService:
             output.append(
                 f"""
 Source:
-{metadata['source']}
+metadata.get("source", "unknown")
 
 Content:
 {document}

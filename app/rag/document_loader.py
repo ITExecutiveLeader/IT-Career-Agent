@@ -41,14 +41,16 @@ def load_documents(knowledge_path: str) -> list[Document]:
     for pdf_path in pdf_files:
 
         try:
-            pdf = fitz.open(pdf_path)
+            pages: list[str] = []
 
-            text = ""
+            with fitz.open(pdf_path) as pdf:
+                for page in pdf:
+                    page_text = page.get_text("text")
 
-            for page in pdf:
-                text += page.get_text()
+                    if isinstance(page_text, str):
+                        pages.append(page_text)
 
-            pdf.close()
+            text = "\n".join(pages)
 
             text = text.strip()
 

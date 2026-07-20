@@ -3,6 +3,7 @@ Retriever utilities for the RAG pipeline.
 """
 
 import chromadb
+from typing import Any, cast
 
 from app.rag.embeddings import get_embedding_model
 
@@ -28,7 +29,7 @@ def retrieve(
     query: str,
     top_k: int = DEFAULT_TOP_K,
     category: str | None = None
-):
+) -> dict[str, Any]:
     """
     Retrieve relevant chunks for a query.
 
@@ -66,4 +67,4 @@ def retrieve(
         **query_params
     )
 
-    return results
+    return cast(dict[str, Any], results)

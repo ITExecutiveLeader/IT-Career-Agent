@@ -34,13 +34,13 @@ class FileLoader:
     @staticmethod
     def _load_pdf(path: Path) -> str:
 
-        pdf = fitz.open(path)
+        pages: list[str] = []
 
-        text = ""
+        with fitz.open(path) as pdf:
+            for page in pdf:
+                page_text = page.get_text("text")
 
-        for page in pdf:
-            text += page.get_text()
+                if isinstance(page_text, str):
+                    pages.append(page_text)
 
-        pdf.close()
-
-        return text.strip()
+        return "\n".join(pages).strip()

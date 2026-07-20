@@ -43,6 +43,12 @@ async def analyze(
     Analyze a resume against a job description.
     """
 
+    if resume_file.filename is None:
+        raise ValueError("Resume file name is missing")
+
+    if job_file.filename is None:
+        raise ValueError("Job file name is missing")
+
     with tempfile.TemporaryDirectory() as temp_dir:
 
         resume_path = Path(temp_dir) / resume_file.filename

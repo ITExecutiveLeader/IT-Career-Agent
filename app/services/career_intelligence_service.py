@@ -14,6 +14,9 @@ class CareerIntelligenceService:
 
         ats = context.ats_result
 
+        if ats is None:
+            raise ValueError("ATS analysis results are required")
+
         return CareerIntelligence(
 
             overall_score=ats.overall_score,

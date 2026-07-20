@@ -43,14 +43,20 @@ class AnalysisService:
 
         context.resume = resume_context.resume
 
+        if context.resume is None:
+            raise ValueError("Resume data was not loaded successfully")
+        
         context.job_description = (
             job_context.job_description
         )
 
+        if context.job_description is None:
+            raise ValueError("Job data was not loaded successfully")
+
         context.ats_result = (
             self.ats_service.analyze(
-                context.resume,
-                context.job_description,
+            context.resume,
+            context.job_description,
             )
         )
 
