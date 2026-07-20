@@ -35,6 +35,10 @@ OLLAMA_HOST = os.getenv(
     "http://localhost:11434",
 )
 
+DATABASE_URL = os.getenv(
+    "DATABASE_URL",
+    "sqlite:///career_agent.db",
+)
 
 def validate_config():
     return True
