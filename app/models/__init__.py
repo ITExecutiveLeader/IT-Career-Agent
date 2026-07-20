@@ -6,6 +6,7 @@ from .job import JobData
 from .ats_result import ATSResult
 from .report import CareerReport
 from .career_intelligence import CareerIntelligence
+from .improvement_plan import ImprovementPlan
 
 __all__ = [
     "Document",
@@ -16,4 +17,5 @@ __all__ = [
     "ATSResult",
     "CareerReport",
     "CareerIntelligence",
+    "ImprovementPlan",
 ]
