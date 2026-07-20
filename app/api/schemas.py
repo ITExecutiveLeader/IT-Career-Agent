@@ -15,3 +15,11 @@ class AnalyzeResponse(BaseModel):
     content: str
 
     format: str
+
+    ats_score: float | None = None
+
+    matched_skills: list[str] = []
+
+    missing_skills: list[str] = []
+
+    recommendations: list[str] = []
