@@ -17,22 +17,81 @@ class ReportGenerator:
             )
 
         ats = context.ats_result
+        intelligence = context.career_intelligence
 
-        content = f"""
-# IT Career Analysis Report
+        sections = []
 
+        sections.append(
+            "# IT Career Analysis Report"
+        )
+
+        if intelligence:
+            sections.append(
+                f"""
+## Executive Summary
+
+{intelligence.executive_summary or "No summary available."}
+"""
+            )
+
+            sections.append(
+                f"""
+## Overall Match Score
+
+{intelligence.overall_score:.1f}%
+"""
+            )
+
+        sections.append(
+            f"""
+## Strengths
+
+{self._format_list(ats.strengths)}
+"""
+        )
+
+        sections.append(
+            f"""
 ## Matched Skills
 
 {self._format_list(ats.matched_skills)}
+"""
+        )
 
+        sections.append(
+            f"""
 ## Missing Skills
 
 {self._format_list(ats.missing_skills)}
+"""
+        )
 
+        sections.append(
+            f"""
+## Priority Gaps
+
+{self._format_list(ats.priority_gaps)}
+"""
+        )
+
+        sections.append(
+            f"""
 ## Recommendations
 
 {self._format_list(ats.recommendations)}
 """
+        )
+
+        if ats.notes:
+            sections.append(
+                f"""
+## Notes
+
+{ats.notes}
+"""
+            )
+
+        content = "\n".join(sections)
 
         return CareerReport(
             title="IT Career Analysis Report",
