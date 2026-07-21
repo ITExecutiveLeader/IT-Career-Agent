@@ -91,6 +91,34 @@ class ReportGenerator:
 """
             )
 
+        if context.improvement_plan:
+
+            plan_items = []
+
+            for item in context.improvement_plan.items:
+                plan_items.append(
+                    f"""
+### Priority {item.priority}: {item.category}
+
+**Issue:**  
+{item.issue}
+
+**Recommendation:**  
+{item.recommendation}
+
+**Impact:**  
+{item.impact}
+"""
+                )
+
+            sections.append(
+                """
+## Improvement Plan
+
+"""
+                + "\n".join(plan_items)
+            )
+
         content = "\n".join(sections)
 
         return CareerReport(

@@ -4,6 +4,7 @@ from app.services.resume_service import ResumeService
 from app.services.job_service import JobService
 from app.services.ats.ats_service import ATSService
 from app.services.career_intelligence_service import CareerIntelligenceService
+from app.services.improvement_planner import ImprovementPlannerService
 
 
 class AnalysisService:
@@ -20,6 +21,8 @@ class AnalysisService:
         self.ats_service = ATSService()
 
         self.career_intelligence_service = CareerIntelligenceService()
+
+        self.improvement_planner = ImprovementPlannerService()
 
     def analyze(
         self,
@@ -64,6 +67,14 @@ class AnalysisService:
             self.career_intelligence_service.build(
                 context
             )
-        )      
+        )
+
+        context.improvement_plan = (
+            self.improvement_planner.create_plan(
+                resume_score=int(context.ats_result.overall_score),
+                missing_skills=context.ats_result.missing_skills,
+                weak_sections=context.ats_result.priority_gaps,
+            )
+        )   
 
         return context

@@ -37,3 +37,8 @@ def test_full_analysis_pipeline():
 
     # Career intelligence validation
     assert context.career_intelligence is not None
+
+    # Improvement plan validation
+    assert context.improvement_plan is not None
+
+    assert context.improvement_plan.items is not None

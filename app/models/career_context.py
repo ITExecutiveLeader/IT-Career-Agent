@@ -6,6 +6,7 @@ from .ats_result import ATSResult
 from .job import JobData
 from .resume import ResumeData
 from .career_intelligence import CareerIntelligence
+from .improvement_plan import ImprovementPlan
 
 
 @dataclass
@@ -29,3 +30,5 @@ class CareerContext:
     )
 
     career_intelligence: CareerIntelligence | None = None
+
+    improvement_plan: ImprovementPlan | None = None
