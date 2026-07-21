@@ -46,6 +46,7 @@ def get_user_by_email(
         .first()
     )
 
+
 def get_or_create_user(
     db,
     email: str,
@@ -122,3 +123,70 @@ def create_analysis(
     db.refresh(analysis)
 
     return analysis
+
+def get_analysis(
+    db: Session,
+    analysis_id: str,
+) -> Analysis | None:
+    """
+    Retrieve a single analysis.
+    """
+
+    return (
+        db.query(Analysis)
+        .filter(Analysis.id == analysis_id)
+        .first()
+    )
+
+
+def get_all_analyses(
+    db: Session,
+) -> list[Analysis]:
+    """
+    Retrieve all analyses.
+    """
+
+    return (
+        db.query(Analysis)
+        .order_by(Analysis.created_at.desc())
+        .all()
+    )
+
+
+def get_user_analyses(
+    db: Session,
+    user_id: str,
+) -> list[Analysis]:
+    """
+    Retrieve analyses for a specific user.
+    """
+
+    return (
+        db.query(Analysis)
+        .filter(Analysis.user_id == user_id)
+        .order_by(Analysis.created_at.desc())
+        .all()
+    )
+
+
+def delete_analysis(
+    db: Session,
+    analysis_id: str,
+) -> bool:
+    """
+    Delete an analysis.
+    """
+
+    analysis = (
+        db.query(Analysis)
+        .filter(Analysis.id == analysis_id)
+        .first()
+    )
+
+    if analysis is None:
+        return False
+
+    db.delete(analysis)
+    db.commit()
+
+    return True
