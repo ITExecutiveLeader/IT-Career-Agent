@@ -74,11 +74,11 @@ def test_analyze_invalid_pdf_returns_error():
         },
     )
 
-    assert response.status_code == 500
+    assert response.status_code == 400
 
     data = response.json()
 
     assert (
         data["detail"]
-        == "Unable to complete career analysis."
+        == "Invalid PDF file. Please upload a valid resume or job description PDF."
     )
