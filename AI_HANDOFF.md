@@ -174,3 +174,5 @@ Create a clean API response model suitable for:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
+
+Local SQLite databases are generated artifacts and are excluded from source control.
