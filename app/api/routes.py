@@ -10,7 +10,9 @@ from fastapi import (
     Depends,
     File,
     UploadFile,
+    HTTPException,
 )
+
 from sqlalchemy.orm import Session
 
 from app.api.schemas import (
@@ -96,14 +98,25 @@ async def analyze(
             raw_text=resume_text,
         )
 
-        context = analysis_service.analyze(
-            str(resume_path),
-            str(job_path),
-        )
+        try:
 
-        report = report_generator.generate(
-            context
-        )
+            context = analysis_service.analyze(
+                str(resume_path),
+                str(job_path),
+            )
+
+            report = report_generator.generate(
+                context
+            )
+
+        except Exception as exc:
+
+            raise HTTPException(
+                status_code=500,
+                detail=(
+                    "Unable to complete career analysis."
+                ),
+            ) from exc
 
         ats_score = None
         executive_summary = None
