@@ -13,7 +13,10 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
-from app.api.schemas import AnalyzeResponse
+from app.api.schemas import (
+    AnalyzeResponse,
+    ImprovementItemResponse,
+)
 from app.database.dependencies import get_db
 from app.database.repository import (
     create_analysis,
@@ -103,9 +106,12 @@ async def analyze(
         )
 
         ats_score = None
-        matched_skills = None
-        missing_skills = None
-        recommendations = None
+        executive_summary = None
+
+        matched_skills = []
+        missing_skills = []
+        recommendations = []
+        improvement_plan = []
 
         if context.ats_result is not None:
             ats_score = float(
@@ -113,17 +119,35 @@ async def analyze(
             )
 
         if context.career_intelligence is not None:
-            matched_skills = ", ".join(
+
+            executive_summary = (
+                context.career_intelligence.executive_summary
+            )
+
+            matched_skills = (
                 context.career_intelligence.matched_skills
             )
 
-            missing_skills = ", ".join(
+            missing_skills = (
                 context.career_intelligence.missing_skills
             )
 
-            recommendations = ", ".join(
+            recommendations = (
                 context.career_intelligence.recommendations
             )
+
+        if context.improvement_plan is not None:
+
+            improvement_plan = [
+                ImprovementItemResponse(
+                    priority=item.priority,
+                    category=item.category,
+                    issue=item.issue,
+                    recommendation=item.recommendation,
+                    impact=item.impact,
+                )
+                for item in context.improvement_plan.items
+            ]
 
         create_analysis(
             db,
@@ -134,13 +158,25 @@ async def analyze(
             ),
             report_content=report.content,
             ats_score=ats_score,
-            matched_skills=matched_skills,
-            missing_skills=missing_skills,
-            recommendations=recommendations,
+            matched_skills=", ".join(
+                matched_skills
+            ),
+            missing_skills=", ".join(
+                missing_skills
+            ),
+            recommendations=", ".join(
+                recommendations
+            ),
         )
 
         return AnalyzeResponse(
             title=report.title,
             content=report.content,
             format=report.format,
+            ats_score=ats_score,
+            executive_summary=executive_summary,
+            matched_skills=matched_skills,
+            missing_skills=missing_skills,
+            recommendations=recommendations,
+            improvement_plan=improvement_plan,
         )
