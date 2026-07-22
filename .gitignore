@@ -75,6 +75,15 @@ vector_db_old_minilm/
 vector_db/
 
 # ===================================
+# Local database
+# Generated application state
+# ===================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+# ===================================
 # Temporary files
 # ===================================
 
