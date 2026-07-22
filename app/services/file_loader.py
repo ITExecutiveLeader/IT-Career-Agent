@@ -31,6 +31,35 @@ class FileLoader:
             f"Unsupported file type: {suffix}"
         )
     
+    def load_bytes(
+        self,
+        pdf_bytes: bytes,
+    ) -> str:
+        """
+        Load a PDF directly from bytes.
+        """
+
+        try:
+            with fitz.open(
+                stream=pdf_bytes,
+                filetype="pdf",
+            ) as pdf:
+
+                pages = []
+
+                for page in pdf:
+                    page_text = page.get_text("text")
+
+                    if isinstance(page_text, str):
+                        pages.append(page_text)
+
+                return "\n".join(pages).strip()
+
+        except Exception as exc:
+            raise ValueError(
+                "Unable to read PDF data."
+            ) from exc
+    
 
     @staticmethod
     def _load_pdf(path: Path) -> str:

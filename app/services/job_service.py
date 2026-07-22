@@ -26,3 +26,18 @@ class JobService:
         return CareerContext(
             job_description=job
         )
+    
+    def load_job_bytes(
+        self,
+        pdf_bytes: bytes,
+    ) -> CareerContext:
+
+        text = self.loader.load_bytes(
+            pdf_bytes
+        )
+
+        job = self.parser.parse(text)
+
+        return CareerContext(
+            job_description=job
+        )

@@ -26,3 +26,18 @@ class ResumeService:
         return CareerContext(
             resume=resume
         )
+    
+    def load_resume_bytes(
+        self,
+        pdf_bytes: bytes,
+    ) -> CareerContext:
+
+        text = self.loader.load_bytes(
+            pdf_bytes
+        )
+
+        resume = self.parser.parse(text)
+
+        return CareerContext(
+            resume=resume
+        )
