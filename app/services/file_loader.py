@@ -30,17 +30,33 @@ class FileLoader:
         raise ValueError(
             f"Unsupported file type: {suffix}"
         )
+    
 
     @staticmethod
     def _load_pdf(path: Path) -> str:
+        try:
+            pdf_bytes = path.read_bytes()
 
-        pages: list[str] = []
+            doc = fitz.open(
+                stream=pdf_bytes,
+                filetype="pdf",
+            )
 
-        with fitz.open(path) as pdf:
-            for page in pdf:
-                page_text = page.get_text("text")
+            try:
+                pages = []
 
-                if isinstance(page_text, str):
-                    pages.append(page_text)
+                for page in doc:
+                    page_text = page.get_text("text")
 
-        return "\n".join(pages).strip()
+                    if isinstance(page_text, str):
+                        pages.append(page_text)
+
+                return "\n".join(pages).strip()
+
+            finally:
+                doc.close()
+
+        except Exception as exc:
+            raise ValueError(
+                f"Unable to read PDF file: {path}"
+            ) from exc

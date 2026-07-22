@@ -55,3 +55,30 @@ def test_analyze_endpoint_returns_career_report():
     assert "recommendations" in data
 
     assert "improvement_plan" in data
+
+def test_analyze_invalid_pdf_returns_error():
+
+    response = client.post(
+        "/analyze",
+        files={
+            "resume_file": (
+                "bad_resume.pdf",
+                b"this is not a valid pdf",
+                "application/pdf",
+            ),
+            "job_file": (
+                "bad_job.pdf",
+                b"this is not a valid pdf",
+                "application/pdf",
+            ),
+        },
+    )
+
+    assert response.status_code == 500
+
+    data = response.json()
+
+    assert (
+        data["detail"]
+        == "Unable to complete career analysis."
+    )

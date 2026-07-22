@@ -111,6 +111,20 @@ async def analyze(
 
         except Exception as exc:
 
+            if (
+                "Failed to open file" in str(exc)
+                or "Unable to read PDF" in str(exc)
+                or "PDF" in str(exc)
+            ):
+                raise HTTPException(
+                    status_code=400,
+                    detail=(
+                        "Invalid PDF file. "
+                        "Please upload a valid resume "
+                        "or job description PDF."
+                    ),
+                ) from exc
+
             raise HTTPException(
                 status_code=500,
                 detail=(
